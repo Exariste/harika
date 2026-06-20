@@ -519,6 +519,9 @@ section { position: relative; }
   background: var(--line);
   border: 1px solid var(--line);
 }
+@media (min-width: 769px) {
+  .inst-grid .inst-card:last-child:nth-child(5) { grid-column: 2 / span 2; }
+}
 .inst-card {
   background: var(--paper);
   padding: 38px 32px 32px;
@@ -862,3 +865,191 @@ section { position: relative; }
 @media (max-width: 540px) {
   .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* ===================================================================
+   Footer — contact card + developer credit
+   =================================================================== */
+.footer-contact-card {
+  margin-top: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line-dark);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.footer-contact-card .fc-row { display: flex; align-items: center; gap: 9px; font-size: 13px; }
+.footer-contact-card .fc-row svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--gold); }
+.footer-bottom-right { display: flex; align-items: center; gap: 18px; }
+.dev-credit { font-size: 12.5px; color: var(--text-on-dark-muted); }
+.dev-credit a { color: var(--gold-light); font-weight: 600; transition: color .25s var(--ease); }
+.dev-credit a:hover { color: var(--gold); }
+.footer-inst-proposed { font-size: 11px; opacity: 0.65; font-style: italic; }
+
+/* ===================================================================
+   Inner page hero banner (About / Institutions / Admissions / etc.)
+   =================================================================== */
+.page-hero {
+  background: var(--ink);
+  color: var(--ivory);
+  padding: calc(var(--nav-h) + var(--announce-h) + 64px) 0 70px;
+  margin-top: calc(-1 * (var(--nav-h) + var(--announce-h)));
+  position: relative;
+  overflow: hidden;
+}
+.page-hero-facets { position: absolute; inset: 0; z-index: 0; opacity: 0.7; }
+.page-hero .container { position: relative; z-index: 1; }
+.page-hero-eyebrow { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.page-hero-eyebrow .crumb-sep { opacity: 0.5; }
+.page-hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 600; letter-spacing: -0.01em; }
+.page-hero p { margin-top: 16px; max-width: 600px; color: var(--text-on-dark-muted); font-size: 16px; line-height: 1.6; }
+
+/* ===================================================================
+   Founder message — with photo
+   =================================================================== */
+.founder-msg-grid--photo {
+  grid-template-columns: 0.85fr 1.55fr;
+}
+.founder-msg-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+}
+.founder-msg-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  clip-path: polygon(8% 0%, 100% 0%, 100% 92%, 92% 100%, 0% 100%, 0% 8%);
+  border: 1px solid var(--line-dark);
+  filter: contrast(1.04) saturate(1.05);
+}
+.founder-msg-photo-cut {
+  position: absolute;
+  inset: -14px -14px auto auto;
+  width: 55%; height: 55%;
+  border: 1.5px solid var(--gold);
+  opacity: 0.5;
+  z-index: -1;
+}
+@media (max-width: 980px) {
+  .founder-msg-grid--photo { grid-template-columns: 1fr; }
+  .founder-msg-photo { max-width: 320px; margin: 0 auto; }
+}
+
+/* ===================================================================
+   Institution detail page
+   =================================================================== */
+.inst-detail-hero {
+  padding: calc(var(--nav-h) + var(--announce-h) + 56px) 0 60px;
+  margin-top: calc(-1 * (var(--nav-h) + var(--announce-h)));
+  color: var(--ivory);
+  background: var(--accent, var(--ink));
+  position: relative;
+  overflow: hidden;
+}
+.inst-detail-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
+  z-index: 0;
+}
+.inst-detail-hero .container { position: relative; z-index: 1; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.inst-detail-logo { width: 84px; height: 84px; object-fit: contain; background: var(--ivory); border-radius: 14px; padding: 10px; flex-shrink: 0; }
+.inst-detail-eyebrow { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; margin-bottom: 10px; }
+.inst-detail-hero h1 { font-size: clamp(28px, 4.4vw, 46px); font-weight: 600; }
+.inst-detail-hero .inst-detail-slogan { margin-top: 8px; font-style: italic; opacity: 0.92; font-size: 16px; }
+
+.inst-detail-body { padding: 80px 0; }
+.inst-detail-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; }
+.inst-detail-content h2 { font-size: 26px; margin-bottom: 16px; }
+.inst-detail-content p { color: var(--text-muted); line-height: 1.75; font-size: 15.5px; margin-bottom: 18px; }
+.inst-detail-list { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+.inst-detail-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; color: var(--text-main); }
+.inst-detail-list li::before { content: '◆'; color: var(--accent, var(--gold)); font-size: 9px; margin-top: 6px; flex-shrink: 0; }
+
+.inst-detail-side { background: var(--ivory-dim); border-radius: 14px; padding: 28px; height: fit-content; border-left: 3px solid var(--accent, var(--gold)); }
+.inst-detail-side h3 { font-size: 16px; margin-bottom: 14px; }
+.inst-detail-fact { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.inst-detail-fact:last-of-type { border-bottom: none; }
+.inst-detail-fact span:first-child { color: var(--text-muted); }
+.inst-detail-fact span:last-child { font-weight: 600; text-align: right; }
+.inst-detail-side .btn { margin-top: 20px; width: 100%; justify-content: center; }
+.proposed-badge { display: inline-block; margin-top: 14px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; background: rgba(139,38,53,0.1); color: var(--c-college); padding: 6px 12px; border-radius: 20px; }
+
+@media (max-width: 860px) {
+  .inst-detail-grid { grid-template-columns: 1fr; }
+}
+
+/* ===================================================================
+   Institutions overview page — grid links to detail pages
+   =================================================================== */
+.inst-overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 50px; }
+@media (min-width: 981px) {
+  .inst-overview-grid .inst-card:last-child:nth-child(5) { grid-column: 2 / span 2; }
+}
+@media (max-width: 980px) { .inst-overview-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .inst-overview-grid { grid-template-columns: 1fr; } }
+
+/* ===================================================================
+   Breadcrumb-style back link
+   =================================================================== */
+.back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-family: var(--f-mono); color: var(--gold-light); margin-bottom: 4px; }
+.back-link:hover { color: var(--gold); }
+
+/* ===================================================================
+   Hero variant — no founder photo (home page, photo moved to About)
+   =================================================================== */
+.hero-inner--full { grid-template-columns: 1fr; max-width: 760px; }
+.hero-copy--center { text-align: center; }
+.hero-copy--center .hero-actions { justify-content: center; }
+.hero-copy--center .hero-meta { justify-content: center; }
+.hero-copy--center .hero-sub { margin-left: auto; margin-right: auto; }
+
+/* ===================================================================
+   Admissions CTA variant — single column (home page quick CTA)
+   =================================================================== */
+.admissions-grid--cta { grid-template-columns: 1fr; text-align: center; }
+.admissions-grid--cta .hero-actions { justify-content: center; }
+.admissions-grid--cta .admissions-sub { max-width: 560px; margin-left: auto; margin-right: auto; }
+
+/* ===================================================================
+   Contact page — info card layout + form (reuses .contact / .contact-grid)
+   =================================================================== */
+.contact-info { display: flex; flex-direction: column; }
+.contact-item { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--line-dark); }
+.contact-item svg { width: 20px; height: 20px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+.contact-item strong { display: block; font-family: var(--f-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold-light); margin-bottom: 4px; font-weight: 500; }
+.contact-item a, .contact-item span { font-size: 15px; color: var(--ivory); }
+.contact-item a:hover { color: var(--gold-light); }
+.contact-info .contact-map { margin-top: 30px; }
+
+.contact-form {
+  background: var(--ivory);
+  color: var(--text-main);
+  border-radius: 14px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.contact-form h3 { font-size: 20px; margin-bottom: 4px; }
+.contact-form input, .contact-form select, .contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--f-body);
+  font-size: 14.5px;
+  background: var(--paper);
+  color: var(--text-main);
+  margin-top: 6px;
+}
+.contact-form label { font-size: 13px; font-weight: 500; color: var(--text-muted); display: flex; flex-direction: column; }
+.contact-form textarea { resize: vertical; }
+
+/* ===================================================================
+   News page — full grid variant (no feature card spanning)
+   =================================================================== */
+.news-grid--full { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .news-grid--full { grid-template-columns: 1fr; } }
