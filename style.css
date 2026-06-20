@@ -961,6 +961,33 @@ section { position: relative; }
 }
 
 /* ===================================================================
+   Founder message — full-width photo (exariste.com style)
+   Text block on top, large uncropped photo below, full container width.
+   =================================================================== */
+.founder-msg--full { padding: 100px 0; }
+.founder-msg--full .founder-msg-copy { max-width: 760px; margin: 0 auto 50px; text-align: left; }
+.founder-msg--full .founder-quote { font-size: clamp(20px, 2.6vw, 26px); }
+.founder-msg-photo--full {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+}
+.founder-msg-photo--full img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: contrast(1.04) saturate(1.05);
+}
+@media (max-width: 640px) {
+  .founder-msg--full { padding: 70px 0; }
+}
+
+/* ===================================================================
    Institution detail page
    =================================================================== */
 .inst-detail-hero {
