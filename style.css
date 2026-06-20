@@ -740,7 +740,7 @@ section { position: relative; }
 /* ===================================================================
    AI Assistant Widget
    =================================================================== */
-.ai-widget { position: fixed; right: 24px; bottom: 24px; z-index: 200; }
+.ai-widget { position: fixed; left: 24px; bottom: 24px; z-index: 200; }
 .ai-fab {
   display: flex; align-items: center; gap: 10px;
   background: var(--ink);
@@ -759,7 +759,7 @@ section { position: relative; }
 .ai-panel {
   position: absolute;
   bottom: calc(100% + 14px);
-  right: 0;
+  left: 0;
   width: 320px;
   max-height: 420px;
   background: var(--paper);
@@ -799,7 +799,7 @@ section { position: relative; }
 .ai-chip:hover { border-color: var(--gold-deep); color: var(--gold-deep); }
 
 @media (max-width: 480px) {
-  .ai-widget { right: 14px; bottom: 14px; }
+  .ai-widget { left: 14px; bottom: 14px; }
   .ai-panel { width: calc(100vw - 28px); }
   .ai-fab span { display: none; }
   .ai-fab { padding: 14px; }
